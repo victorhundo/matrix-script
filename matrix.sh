@@ -40,7 +40,6 @@ function draw_line {
     RANDOM_LINE_SIZE=$(echo $(( (RANDOM % $N_LINE) + 1)));
     SPEED=0.05
 
-    tput setab 0 #Background Black
     COLOR="\033[32m"; #GREEN
     COLOR_HEAD="\033[37m"; #WHITE
 
@@ -62,6 +61,7 @@ function draw_line {
 }
 
 function matrix {
+    tput setab 0 #Background Black
     clear
     while true; do
         draw_line & #Parallel
