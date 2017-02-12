@@ -1,4 +1,6 @@
 #!/bin/bash
+N_LINE=$(( $(tput lines) - 1));
+N_COLUMN=$(tput cols);
 
 function get_char {
     RANDOM_U=$(echo $(( (RANDOM % 9) + 0)));
@@ -31,12 +33,8 @@ function print_char {
 }
 
 
-function draw_line {
-    
-    N_LINE=$(( $(tput lines) - 1));
-    N_COLUMN=$(tput cols);
+function draw_line {    
     RANDOM_COLUMN=$[RANDOM%N_COLUMN];
-    #RANDOM_LINE_SIZE=$[RANDOM%N_LINE];
     RANDOM_LINE_SIZE=$(echo $(( (RANDOM % $N_LINE) + 1)));
     SPEED=0.05
 
