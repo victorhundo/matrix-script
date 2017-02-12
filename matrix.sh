@@ -35,11 +35,12 @@ function draw_line {
     
     N_LINE=$(( $(tput lines) - 1));
     N_COLUMN=$(tput cols);
-    RANDOM_COLUMN=$[RANDOM % $N_COLUMN];
-    RANDOM_LINE_SIZE=$[RANDOM % $N_LINE];
-    SPEED=0.03
+    RANDOM_COLUMN=$[RANDOM%N_COLUMN];
+    #RANDOM_LINE_SIZE=$[RANDOM%N_LINE];
+    RANDOM_LINE_SIZE=$(echo $(( (RANDOM % $N_LINE) + 1)));
+    SPEED=0.05
 
-    
+    tput setab 0 #Background Black
     COLOR="\033[32m"; #GREEN
     COLOR_HEAD="\033[37m"; #WHITE
 
@@ -61,11 +62,10 @@ function draw_line {
 }
 
 function matrix {
-    tput setab 0 #Background Black
     clear
     while true; do
         draw_line & #Parallel
-        sleep 0.6;
+        sleep 0.5;
     done
 }
 
