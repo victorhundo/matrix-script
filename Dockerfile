@@ -1,7 +1,7 @@
-FROM gcc:latest
+FROM debian:latest
 
-WORKDIR /workspace
 ENV LANG en_US.UTF-8
 
+WORKDIR /workspace
 COPY ./ /workspace
 CMD [ "sh", "-c","/workspace/matrix.sh" ]

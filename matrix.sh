@@ -7,7 +7,7 @@ function get_char {
     RANDOM_D=$(echo $(( (RANDOM % 9) + 0)));
     
     #https://unicode-table.com/en/#kangxi-radicals
-    CHAR_TYPE="\u2F"
+    CHAR_TYPE="\u04"
 
     printf "%s" "$CHAR_TYPE$RANDOM_D$RANDOM_U";
 }
@@ -59,7 +59,7 @@ function draw_line {
 }
 
 function matrix {
-    tput setab 0 #Background Black
+    tput setab 000 #Background Black
     clear
     while true; do
         draw_line & #Parallel
